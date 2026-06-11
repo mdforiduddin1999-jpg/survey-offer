@@ -3,77 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Your $750 DoorDash Voucher</title>
+    <title>Win $750 Venmo Gift Card</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fa;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
             justify-content: center;
+            align-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            text-align: center;
         }
         .container {
-            text-align: center;
-            background: #ffffff;
+            max-width: 500px;
             padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            max-width: 420px;
-            width: 90%;
-        }
-        .door-dash-banner {
-            width: 100%;
-            max-height: 220px;
-            object-fit: cover;
+            background: #1e1e1e;
             border-radius: 12px;
-            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
         }
-        .status-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff3008; /* DoorDash Red Brand Color */
+        h1 {
+            font-size: 24px;
+            color: #00d26a; /* Venmo style green */
             margin-bottom: 10px;
         }
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #ff3008;
+        p {
+            font-size: 16px;
+            color: #b3b3b3;
+            line-height: 1.5;
+        }
+        .countdown {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0072e3; /* Accent blue */
+            margin: 20px 0;
+        }
+        .loader {
+            border: 4px solid #333;
             border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            animation: spin 0.8s linear infinite;
-            margin: 15px auto;
+            border-top: 4px solid #00d26a;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px auto;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .info-p {
+        .fallback-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #0072e3;
+            text-decoration: none;
             font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 5px;
+        }
+        .fallback-link:hover {
+            text-decoration: underline;
         }
     </style>
-    <script>
-        // ইউজার পেজে আসা মাত্রই ব্যাকগ্রাউন্ডে ক্লিক রেজিস্টার হবে এবং ১.৫ সেকেন্ডে অফারে চলে যাবে
-        window.onload = function() {
-            setTimeout(function() {
-                window.location.href = "https://singingfiles.com/show.php?l=0&u=2530338&id=74929";
-            }, 1500); 
-        };
-    </script>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60" alt="DoorDash Food Voucher" class="door-dash-banner">
+<div class="container">
+    <div class="loader"></div>
+    <h1>Connecting to Secure Server...</h1>
+    <p>Please wait while we redirect you to the <strong>$750 Venmo Gift Card</strong> offer page.</p>
+    
+    <div class="countdown">Redirecting in <span id="timer">3</span> seconds...</div>
+    
+    <p style="font-size: 12px; color: #666;">Note: This offer is exclusively available for Mobile Users in the United States.</p>
+    
+    <a class="fallback-link" id="redirect-link" href="YOUR_OFFER_LINK_HERE">Click here if you are not redirected automatically</a>
+</div>
+
+<script>
+    // আপনার অফার লিংকটি এখানে বসান
+    const offerLink = "https://www.cstmd.com/view.php?id=5545406&pub=3528704";
+    
+    // ফলব্যাক লিংকের href আপডেট করা
+    document.getElementById('redirect-link').href = offerLink;
+
+    let seconds = 3;
+    const timerElement = document.getElementById('timer');
+
+    // কাউন্টডাউন টাইমার ফাংশন
+    const countdown = setInterval(() => {
+        seconds--;
+        timerElement.textContent = seconds;
         
-        <div class="status-text">Allocating Your $750 Voucher Entry...</div>
-        <div class="spinner"></div>
-        <p class="info-p">Securing your Australian promo spot. Please do not close or refresh this window.</p>
-    </div>
+        if (seconds <= 0) {
+            clearInterval(countdown);
+            window.location.href = offerLink; // রিডাইরেক্ট অ্যাকশন
+        }
+    }, 1000);
+</script>
 
 </body>
 </html>
